@@ -28,6 +28,17 @@
 
       <li class="nav-item">
         <sidenav-collapse
+          navText="Appro"
+          :to="{ name: 'Approvisionnement' }"
+        >
+          <template #icon>
+            <box3d />
+          </template>
+        </sidenav-collapse>
+      </li>
+
+   <!--    <li class="nav-item">
+        <sidenav-collapse
           navText="Virtual Reality"
           :to="{ name: 'Virtual Reality' }"
         >
@@ -35,7 +46,7 @@
             <box3d />
           </template>
         </sidenav-collapse>
-      </li>
+      </li> -->
       <li class="nav-item">
         <sidenav-collapse navText="RTL" :to="{ name: 'Rtl' }">
           <template #icon>

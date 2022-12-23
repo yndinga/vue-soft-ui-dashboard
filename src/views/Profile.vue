@@ -564,7 +564,7 @@ import DefaultProjectCard from "./components/DefaultProjectCard.vue";
 import PlaceHolderCard from "@/examples/Cards/PlaceHolderCard.vue";
 import setNavPills from "@/assets/js/nav-pills.js";
 import setTooltip from "@/assets/js/tooltip.js";
-
+import axiosClient from "../axios";
 export default {
   name: "ProfileOverview",
   components: {
@@ -593,6 +593,16 @@ export default {
       faTwitter,
       faInstagram,
     };
+
+
+  },
+
+  methods: {
+    getProfil() {
+      axiosClient.post('/user')
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
   },
 
   mounted() {

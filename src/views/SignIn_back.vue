@@ -49,15 +49,14 @@
                       Remember me
                     </soft-switch>
                     <div class="text-center">
-                      <button
+                      <soft-button
                         type="submit"
-                        class="btn mb-0 bg-gradient-success btn-md w-100 null my-4 mb-2"
+                        class="my-4 mb-2"
                         variant="gradient"
                         color="success"
                         full-width
-                      >
-                        Se connecter
-                      </button>
+                        >Se connecter
+                      </soft-button>
                     </div>
                   </form>
                 </div>
@@ -136,15 +135,14 @@ export default {
     ...mapMutations(["toggleEveryDisplay", "toggleHideConfig"]),
 
     handlelogin() {
-        axios.get("/sanctum/csrf-cookie");
-        axios.post("api/login", {
+      axios
+        .post("api/login", {
           email: this.email,
           password: this.password,
         })
         .then((res) => {
           store.state.user.token = res.data.token;
-          localStorage.setItem("token", res.data.token);
-         // console.log(store.state.user.token);
+          console.log(store.state.user.token);
           this.$router.push({ name: "Profile" });
         })
         .catch((err) => {
